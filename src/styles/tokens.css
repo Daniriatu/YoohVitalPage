@@ -1,0 +1,136 @@
+/* ============================================
+   tokens.css — 设计令牌（Design Tokens）
+   ============================================
+   品牌视觉系统的核心变量定义。
+   所有颜色、字体、间距、阴影等均在此集中管理，
+   方便全局统一修改。
+   ============================================ */
+
+:root {
+  /* ------------------------------------------
+     颜色系统 — 背景色
+     温暖优雅的轻奢色调，从米白到香槟色渐变
+     ------------------------------------------ */
+  --color-cream: #FAF7F2;           /* 主背景：米白色 */
+  --color-pearl: #F5F0EB;           /* 珍珠白：备选背景 */
+  --color-champagne: #F2E8D9;       /* 浅香槟色：温暖强调 */
+  --color-champagne-light: #F7F0E4; /* 更浅的香槟色 */
+  --color-warm-gray: #EFEBE6;       /* 暖灰色：中性背景 */
+  --color-lavender-hint: #EDE8F0;   /* 淡紫色调：夜晚过渡 */
+
+  /* ------------------------------------------
+     颜色系统 — 产品色（戒指材质）
+     ------------------------------------------ */
+  --color-rose-gold: #B76E79;       /* 玫瑰金 */
+  --color-rose-gold-light: #D4A0A7; /* 浅玫瑰金 */
+  --color-silver: #C0C0C0;          /* 纯银 */
+  --color-silver-light: #D8D8D8;    /* 浅银色 */
+
+  /* ------------------------------------------
+     颜色系统 — 文本色
+     ------------------------------------------ */
+  --color-text-primary: #2D2A26;    /* 主标题：深咖啡色 */
+  --color-text-secondary: #6B6560;  /* 正文：中灰棕色 */
+  --color-text-tertiary: #9B9590;   /* 辅助文字：浅灰色 */
+  --color-text-white: #FFFFFF;      /* 白色文字 */
+
+  /* ------------------------------------------
+     颜色系统 — 强调色与功能色
+     ------------------------------------------ */
+  --color-accent-warm: #D4956A;     /* 暖橙色强调 */
+  --color-accent-health: #7ABEAA;   /* 健康绿色 */
+  --color-accent-sport: #E8A87C;    /* 运动橙色 */
+  --color-accent-heart: #E07A7A;    /* 心率红色 */
+  --color-accent-o2: #6FA8DC;       /* 血氧蓝色 */
+  --color-accent-fun: #C89BDA;      /* 娱乐紫色 */
+
+  /* ------------------------------------------
+     毛玻璃效果 — Glassmorphism
+     ------------------------------------------ */
+  --glass-bg: rgba(255, 255, 255, 0.45);         /* 玻璃背景 */
+  --glass-bg-strong: rgba(255, 255, 255, 0.65);  /* 较强玻璃背景 */
+  --glass-border: rgba(255, 255, 255, 0.6);      /* 玻璃边框 */
+  --glass-blur: 20px;                             /* 模糊半径 */
+
+  /* ------------------------------------------
+     字体系统
+     Cormorant Garamond：优雅衬线体，用于标题
+     Inter：现代无衬线体，用于正文
+     ------------------------------------------ */
+  --font-display: 'Cormorant Garamond', 'Georgia', serif;
+  --font-body: 'Inter', 'Helvetica Neue', 'Arial', sans-serif;
+
+  /* 字号梯度 — 移动端优先 */
+  --text-hero: clamp(2.5rem, 8vw, 4.5rem);       /* 英雄区标题 */
+  --text-section-title: clamp(1.8rem, 5vw, 3rem); /* 模块标题 */
+  --text-subtitle: clamp(1.1rem, 3vw, 1.5rem);    /* 副标题 */
+  --text-body: clamp(0.9rem, 2.5vw, 1.05rem);     /* 正文 */
+  --text-caption: clamp(0.75rem, 2vw, 0.85rem);   /* 标注/小字 */
+  --text-badge: clamp(0.7rem, 1.8vw, 0.8rem);     /* 时间徽章 */
+
+  /* 字重 */
+  --weight-light: 300;
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+
+  /* 行高 */
+  --leading-tight: 1.2;
+  --leading-normal: 1.6;
+  --leading-relaxed: 1.8;
+
+  /* 字间距 */
+  --tracking-tight: -0.02em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.05em;
+  --tracking-wider: 0.12em;
+
+  /* ------------------------------------------
+     间距系统（基于 8px 网格）
+     ------------------------------------------ */
+  --space-xs: 0.25rem;   /* 4px */
+  --space-sm: 0.5rem;    /* 8px */
+  --space-md: 1rem;      /* 16px */
+  --space-lg: 1.5rem;    /* 24px */
+  --space-xl: 2rem;      /* 32px */
+  --space-2xl: 3rem;     /* 48px */
+  --space-3xl: 4rem;     /* 64px */
+  --space-4xl: 6rem;     /* 96px */
+
+  /* ------------------------------------------
+     圆角
+     ------------------------------------------ */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-full: 9999px;  /* 胶囊形 */
+
+  /* ------------------------------------------
+     阴影 — 弥散柔和阴影
+     ------------------------------------------ */
+  --shadow-soft: 0 8px 32px rgba(0, 0, 0, 0.06);
+  --shadow-medium: 0 12px 40px rgba(0, 0, 0, 0.08);
+  --shadow-glow-rose: 0 0 40px rgba(183, 110, 121, 0.2);
+  --shadow-glow-silver: 0 0 40px rgba(192, 192, 192, 0.25);
+
+  /* ------------------------------------------
+     过渡动画
+     ------------------------------------------ */
+  --transition-fast: 200ms ease;
+  --transition-normal: 400ms ease;
+  --transition-slow: 600ms ease;
+  --transition-material: 600ms cubic-bezier(0.4, 0, 0.2, 1); /* 材质切换 */
+
+  /* ------------------------------------------
+     层级（z-index）
+     ------------------------------------------ */
+  --z-background: 1;
+  --z-ring-canvas: 10;    /* Three.js 画布 */
+  --z-content: 20;        /* 页面内容（卡片、文字） */
+  --z-nav-dots: 50;       /* 侧边导航圆点 */
+  --z-toggle: 60;         /* 材质切换按钮 */
+  --z-chat: 70;           /* 客服悬浮按钮 */
+  --z-overlay: 100;       /* 全屏遮罩 */
+}

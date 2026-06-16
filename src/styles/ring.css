@@ -1,0 +1,120 @@
+/* ============================================
+   ring.css — 3D 戒指画布容器 & 材质切换按钮
+   ============================================ */
+
+/* 戒指画布固定层 — sticky 定位，内容滚过画布上方 */
+.ring-canvas-wrapper {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: var(--z-ring-canvas);
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ring-canvas-wrapper canvas {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+  pointer-events: none;
+}
+
+/* 材质切换按钮 — 胶囊形双色切换器 */
+.material-toggle {
+  position: fixed;
+  bottom: calc(var(--space-3xl) + 10px);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: var(--z-toggle);
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: 4px;
+  background: var(--glass-bg-strong);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-full);
+  box-shadow: var(--shadow-soft);
+  opacity: 0;
+  transition: opacity var(--transition-slow);
+}
+
+.material-toggle.visible { opacity: 1; }
+
+/* 材质选项按钮 */
+.material-toggle__option {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: 8px 16px;
+  border-radius: var(--radius-full);
+  font-size: var(--text-caption);
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--tracking-wide);
+  color: var(--color-text-secondary);
+  transition: all var(--transition-material);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+/* 材质色点指示器 */
+.material-toggle__dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(0,0,0,0.1);
+  transition: transform var(--transition-fast);
+}
+
+.material-toggle__dot--silver {
+  background: linear-gradient(135deg, #E8E8E8, #A8A8A8);
+}
+
+.material-toggle__dot--rose-gold {
+  background: linear-gradient(135deg, #E8B4B8, #B76E79);
+}
+
+/* 选中状态 */
+.material-toggle__option.active {
+  background: rgba(255,255,255,0.8);
+  color: var(--color-text-primary);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.material-toggle__option.active .material-toggle__dot {
+  transform: scale(1.15);
+}
+
+.material-toggle__option:hover:not(.active) {
+  background: rgba(255,255,255,0.4);
+}
+
+/* 戒指光晕效果 — 柔和光晕在画布后面 */
+.ring-glow {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  z-index: calc(var(--z-ring-canvas) - 1);
+  pointer-events: none;
+  opacity: 0.4;
+  filter: blur(60px);
+  transition: background var(--transition-material), opacity var(--transition-slow);
+}
+
+.ring-glow--silver {
+  background: radial-gradient(circle, rgba(192,192,192,0.3), transparent 70%);
+}
+
+.ring-glow--rose-gold {
+  background: radial-gradient(circle, rgba(183,110,121,0.25), transparent 70%);
+}

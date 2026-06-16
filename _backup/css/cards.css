@@ -1,0 +1,173 @@
+/* ============================================
+   cards.css — 毛玻璃特性卡片
+   ============================================
+   时尚杂志排版风格的半透明卡片，
+   弹性高度自适应西班牙语长文本。
+   ============================================ */
+
+/* 基础卡片 — 毛玻璃效果 */
+.feature-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  padding: var(--space-lg);
+  /* 弹性高度 — 不设固定高度，内容撑开 */
+  min-height: auto;
+  /* 西班牙语长词自动折行 */
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+  /* 入场动画初始状态 */
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity var(--transition-slow),
+              transform var(--transition-slow),
+              box-shadow var(--transition-normal);
+}
+
+/* 卡片可见状态（由滚动动画触发） */
+.feature-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 卡片悬停效果 — 轻微上浮 */
+.feature-card:hover {
+  box-shadow: var(--shadow-medium);
+  transform: translateY(-2px);
+}
+
+/* ------------------------------------------
+   卡片内部元素
+   ------------------------------------------ */
+
+/* 卡片图标 */
+.feature-card__icon {
+  width: 48px;
+  height: 48px;
+  margin-bottom: var(--space-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-md);
+  background: rgba(255,255,255,0.6);
+  font-size: 1.5rem;
+}
+
+/* 卡片标题 */
+.feature-card__title {
+  font-family: var(--font-display);
+  font-size: var(--text-subtitle);
+  font-weight: var(--weight-semibold);
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-sm);
+  line-height: var(--leading-tight);
+}
+
+/* 卡片描述文字 */
+.feature-card__desc {
+  font-size: var(--text-body);
+  color: var(--color-text-secondary);
+  line-height: var(--leading-relaxed);
+}
+
+/* ------------------------------------------
+   卡片网格布局
+   ------------------------------------------ */
+.cards-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-md);
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+/* 平板及以上双列 */
+@media (min-width: 600px) {
+  .cards-grid {
+    grid-template-columns: 1fr 1fr;
+    max-width: 700px;
+  }
+}
+
+/* ------------------------------------------
+   特殊卡片变体
+   ------------------------------------------ */
+
+/* 数据展示卡片 — 用于心率、血氧等 */
+.data-card {
+  text-align: center;
+  padding: var(--space-md);
+}
+
+.data-card__value {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 6vw, 3rem);
+  font-weight: var(--weight-bold);
+  line-height: 1;
+  margin-bottom: var(--space-xs);
+}
+
+.data-card__label {
+  font-size: var(--text-caption);
+  color: var(--color-text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wider);
+}
+
+/* 家人卡片 — 用于健康共享模块 */
+.family-card {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-md);
+}
+
+.family-card__avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-rose-gold-light), var(--color-champagne));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.family-card__info {
+  flex: 1;
+  min-width: 0;
+}
+
+.family-card__name {
+  font-weight: var(--weight-medium);
+  font-size: var(--text-body);
+  color: var(--color-text-primary);
+  margin-bottom: 2px;
+}
+
+.family-card__status {
+  font-size: var(--text-caption);
+  color: var(--color-accent-health);
+}
+
+/* 波形图容器 */
+.waveform-container {
+  width: 100%;
+  height: 60px;
+  margin-top: var(--space-sm);
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-sm);
+}
+
+.waveform-container svg {
+  width: 100%;
+  height: 100%;
+}
