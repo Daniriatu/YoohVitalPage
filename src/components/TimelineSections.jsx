@@ -66,20 +66,20 @@ const TimelineSections = () => {
             </div>
           </div>
           <div className="feature-card anim-fade-up anim-delay-3">
-            <div className="feature-card__icon">🌡️</div>
-            <h3 className="feature-card__title">Temperatura corporal</h3>
+            <div className="feature-card__icon">🫧</div>
+            <h3 className="feature-card__title">Oxígeno en sangre</h3>
             <p className="feature-card__desc">
-              Monitorización continua de temperatura en tiempo real. Detecta
-              cambios sutiles en tu bienestar.
+              Monitorización continua de la saturación de oxígeno (SpO₂) en tiempo real.
+              Mantente al tanto de tu salud respiratoria.
             </p>
             <div className="data-card" style={{ marginTop: "var(--space-sm)" }}>
               <div
                 className="data-card__value"
-                style={{ color: "var(--color-accent-warm)" }}
+                style={{ color: "var(--color-accent-o2)" }}
               >
-                36.5°
+                99<span style={{ fontSize: "0.5em" }}>%</span>
               </div>
-              <div className="data-card__label">Temperatura actual</div>
+              <div className="data-card__label">Nivel de SpO₂</div>
             </div>
           </div>
         </div>

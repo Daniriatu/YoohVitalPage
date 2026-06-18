@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 
 const images = [
-    "/pulsera.png",
     "/smart_ring1.png",
     "/smart_ring2.png",
+    "/pulsera.png",
     "/smart_ring_futbol.png",
 ];
 
